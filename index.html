@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nutrition Tracker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Current Date and Time (UTC)</h1>
-    <p>2026-02-26 21:27:31</p>
+    <header>
+        <h1>Nutrition Tracker</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Enter Your Food</h2>
+            <form id="food-form">
+                <input type="text" id="food-item" placeholder="Food Item" required>
+                <input type="number" id="calories" placeholder="Calories" required>
+                <button type="submit">Add Food</button>
+            </form>
+        </section>
+        <section>
+            <h2>Your Food Log</h2>
+            <ul id="food-log"></ul>
+        </section>
+        <section>
+            <h2>Total Calories</h2>
+            <p id="total-calories">0</p>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
