@@ -88,7 +88,7 @@
                 }
             }
             return {
-                currentDate: new Date().toISOString().split('T')[0],
+                currentDate: new Date().toLocaleDateString('sv'),
                 entries: {},
                 targets: {
                     calories: 2000,
@@ -139,7 +139,7 @@
         function renderHeader() {
             const d = new Date(state.currentDate);
             const dateStr = d.toLocaleDateString('de-DE', { weekday: 'short', month: 'short', day: 'numeric' });
-            const isToday = state.currentDate === new Date().toISOString().split('T')[0];
+            const isToday = state.currentDate === new Date().toLocaleDateString('sv');
             
             return `
                 <div class="flex items-center justify-between p-4 bg-zinc-950 sticky top-0 z-10 border-b border-zinc-900">
@@ -331,7 +331,7 @@
             for (let i = 6; i >= 0; i--) {
                 const d = new Date(today);
                 d.setDate(d.getDate() - i);
-                const dateStr = d.toISOString().split('T')[0];
+                const dateStr = d.toLocaleDateString('sv');
                 const { totals } = calculateDailyTotals(dateStr);
                 
                 if (totals.calories > 0) {
@@ -669,7 +669,7 @@
                 case 'prev-day': {
                     const d = new Date(state.currentDate);
                     d.setDate(d.getDate() - 1);
-                    state.currentDate = d.toISOString().split('T')[0];
+                    state.currentDate = d.toLocaleDateString('sv');
                     saveState();
                     updateUI();
                     break;
@@ -677,7 +677,7 @@
                 case 'next-day': {
                     const d = new Date(state.currentDate);
                     d.setDate(d.getDate() + 1);
-                    state.currentDate = d.toISOString().split('T')[0];
+                    state.currentDate = d.toLocaleDateString('sv');
                     saveState();
                     updateUI();
                     break;
@@ -717,7 +717,7 @@
                 case 'copy-prev-day': {
                     const d = new Date(state.currentDate);
                     d.setDate(d.getDate() - 1);
-                    const prevDate = d.toISOString().split('T')[0];
+                    const prevDate = d.toLocaleDateString('sv');
                     const prevEntries = state.entries[prevDate];
                     if (prevEntries && prevEntries.length > 0) {
                         if (!state.entries[state.currentDate]) state.entries[state.currentDate] = [];
@@ -836,3 +836,4 @@
     </script>
 </body>
 </html>
+
